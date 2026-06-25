@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>球神直播 · 简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f8f6f1;
+      font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+      color: #2c2c2b;
+      line-height: 1.7;
+      padding: 0 20px;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 0 60px;
+    }
+
+    /* Hero 横幅 —— 杂志开篇 */
+    .hero {
+      margin-bottom: 52px;
+      border-bottom: 2px solid #d6cebd;
+      padding-bottom: 28px;
+    }
+
+    .hero__label {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #9b8e7a;
+      margin-bottom: 12px;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .hero__title {
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: #3f3e3a;
+      margin-bottom: 10px;
+    }
+
+    .hero__sub {
+      font-size: 1.05rem;
+      color: #6b6255;
+      font-style: italic;
+      max-width: 600px;
+      margin-top: 6px;
+    }
+
+    /* 正文排版 */
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .section {
+      border-left: 3px solid transparent;
+      padding-left: 18px;
+    }
+
+    .section__heading {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #3f3e3a;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+      border-bottom: 1px dashed #d8cfbc;
+      padding-bottom: 6px;
+    }
+
+    .section p {
+      margin-bottom: 18px;
+      font-size: 1.02rem;
+    }
+
+    /* 引用 / 提示框 —— 杂志感 callout */
+    .callout {
+      background-color: #eeebe4;
+      border-left: 5px solid #b5a48a;
+      padding: 20px 26px;
+      margin: 28px 0 18px;
+      font-size: 0.98rem;
+      border-radius: 0 6px 6px 0;
+      color: #3e3b35;
+    }
+
+    .callout strong {
+      color: #5a4d39;
+      font-weight: 600;
+    }
+
+    .callout a {
+      color: #5f503b;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: background-color 0.2s;
+    }
+
+    .callout a:hover {
+      background-color: #d5cdba;
+      text-decoration: none;
+    }
+
+    /* 特点列表 —— 用自然段落呈现，不用符号列表 */
+    .feature-note {
+      background: #f3f0e9;
+      padding: 14px 22px;
+      border-radius: 4px;
+      margin-top: 8px;
+      font-size: 0.96rem;
+      line-height: 1.6;
+      border: 1px solid #e3dccc;
+    }
+
+    .feature-note span {
+      display: inline-block;
+      background: #d6cebd;
+      color: #2f2e2a;
+      font-size: 0.7rem;
+      padding: 0 8px;
+      border-radius: 12px;
+      margin-right: 6px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .feature-note a {
+      color: #5f503b;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .feature-note a:hover {
+      background-color: #d5cdba;
+      text-decoration: none;
+    }
+
+    /* 页尾访问提示 */
+    .footer-visit {
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid #d6cebd;
+      text-align: left;
+      font-size: 1rem;
+      color: #5b5447;
+    }
+
+    .footer-visit p {
+      margin-bottom: 6px;
+    }
+
+    .footer-visit a {
+      color: #4d4233;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: background 0.2s;
+    }
+
+    .footer-visit a:hover {
+      background-color: #dfd6c3;
+      text-decoration: none;
+    }
+
+    .footer-meta {
+      font-size: 0.8rem;
+      color: #a19787;
+      margin-top: 16px;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 600px) {
+      .hero__title {
+        font-size: 2.1rem;
+      }
+
+      .hero__sub {
+        font-size: 0.95rem;
+      }
+
+      .section__heading {
+        font-size: 1.35rem;
+      }
+
+      .callout {
+        padding: 16px 18px;
+      }
+
+      .page {
+        padding: 26px 0 40px;
+      }
+
+      .feature-note {
+        padding: 12px 16px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      body {
+        padding: 0 12px;
+      }
+
+      .hero__title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 杂志式横幅 -->
+    <header class="hero">
+      <div class="hero__label"> 简明指南 · 专题</div>
+      <h1 class="hero__title">球神直播<br>从零开始的访问备忘</h1>
+      <p class="hero__sub">一份平实的生活化指引，帮你更快找到那个叫「球神」的地方。</p>
+    </header>
+
+    <!-- 三段自然介绍 -->
+    <div class="content">
+      <!-- 第一段：背景与定位 -->
+      <section class="section">
+        <h2 class="section__heading">它到底是个什么样的平台？</h2>
+        <p>
+          如果你身边有朋友偶尔提起“球神直播”，却总说得含含糊糊，不用着急。简单来说，它就是一个围绕体育赛事、休闲竞技以及日常互动展开的直播空间。不追求花哨的包装，更在意真实的内容和稳定的连接。在这里，你既可以看到比赛实况的讨论，也能遇到不少有着相同兴趣的观众。
+        </p>
+        <p>
+          很多初次接触的人会担心操作复杂，其实完全不必。整个页面结构偏向传统，信息分区清楚，没有过度嵌套的菜单。你只需要一个浏览器，或者手机上的主流应用，就能直接进入。不需要额外的注册门槛，也不需要反复验证。
+        </p>
+        <div class="callout">
+          <strong>一个小提醒：</strong> 如果你是通过搜索引擎找到 <a href="https://website-qiushen.com">球神直播</a>，建议留意网址是否和官方一致，避免误入仿冒页面。认准域名就能省去很多麻烦。
+        </div>
+      </section>
+
+      <!-- 第二段：使用场景与自然特点 -->
+      <section class="section">
+        <h2 class="section__heading">什么情况下你会想到它？</h2>
+        <p>
+          周末晚上，打开页面看看正在进行的赛事讨论；或者闲暇时翻一翻自己感兴趣的游戏直播，和主播聊几句——这些都是很常见的场景。平台并没有强制你关注多少频道，也没有铺天盖地的弹窗广告，节奏由你自己把握。
+        </p>
+        <p>
+          和许多同类服务不同的是，<strong>球神直播</strong>在内容分类上比较克制：主要围绕体育、竞技和日常闲聊三大块，没有盲目追热点。这种专注反而让老用户觉得稳定，新用户也不会眼花缭乱。
+        </p>
+        <!-- 嵌入一个带链接的自然段落 -->
+        <div class="feature-note">
+          <span>🌱</span> 不少社区成员会自发分享观赛链接和战术分析，如果你也喜欢这类内容，不妨直接前往 <a href="https://website-qiushen.com">球神直播</a> 的讨论区看看，那里通常有第一手的动态。
+        </div>
+      </section>
+
+      <!-- 第三段：访问提醒 + FAQ 摘要风格 -->
+      <section class="section">
+        <h2 class="section__heading">访问前需要知道的三两事</h2>
+        <p>
+          第一，网址正确比什么都重要。我见过有人把字母拼错，或者加了多余的后缀，结果跳转到完全无关的页面。所以每次输入或点击链接时，多看一眼总没错。
+        </p>
+        <p>
+          第二，页面加载速度受网络影响，如果你所在的地区连接不稳定，可以尝试切换网络或者稍后再试。平台本身没有设置太多封锁，大多数情况下都能顺畅打开。
+        </p>
+        <p>
+          第三，如果遇到播放卡顿或界面显示异常，先刷新一次——很多小问题都能通过刷新解决。另外，部分浏览器需要允许弹出窗口或启用 JavaScript，建议保持默认开启。
+        </p>
+        <!-- 引用块作为提示 -->
+        <div class="callout">
+          <strong>📌 常见疑问：</strong> “我需要下载专用软件吗？” 不需要。直接用浏览器访问 <a href="https://website-qiushen.com">球神直播</a> 即可，手机和电脑都支持。当然，如果你习惯使用客户端，也可以留意官方途径，但网页版本已经足够覆盖大部分功能。
+        </div>
+      </section>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-visit">
+      <p>以上内容只是从日常使用角度整理的一点心得。</p>
+      <p>如果你想亲自感受一下，随时可以前往 <a href="https://website-qiushen.com">球神直播</a>。没有复杂的流程，打开就是。</p>
+      <div class="footer-meta">
+        <span>—— 一份来自普通用户的备忘 · 不定期更新</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
