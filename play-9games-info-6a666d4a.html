@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(145deg, #ffe4b5 0%, #fdd49e 30%, #fcc084 60%, #fbb168 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2e241e;
+        }
+
+        .magazine-card {
+            max-width: 880px;
+            width: 100%;
+            background: #fefcf7;
+            border-radius: 40px 40px 32px 32px;
+            box-shadow: 0 20px 40px rgba(120, 70, 30, 0.18), 0 6px 12px rgba(80, 40, 10, 0.08);
+            padding: 2.8rem 2.5rem 2.8rem 2.5rem;
+            backdrop-filter: blur(2px);
+            transition: all 0.2s ease;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            margin-bottom: 2.8rem;
+            padding-bottom: 1.6rem;
+            border-bottom: 1px solid #eedcc9;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #6b3f1d;
+            background: linear-gradient(135deg, #7b4a2a, #b16f3a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 8px rgba(190, 120, 50, 0.2);
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #7c5a3e;
+            background: rgba(230, 190, 150, 0.25);
+            display: inline-block;
+            padding: 0.3rem 2rem;
+            border-radius: 40px;
+            letter-spacing: 1px;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero .sub i {
+            font-style: normal;
+            display: inline-block;
+            margin: 0 6px;
+        }
+
+        /* 背景说明 */
+        .bg-note {
+            background: #f9f1e9;
+            padding: 1.3rem 1.8rem;
+            border-radius: 28px;
+            margin-bottom: 2.4rem;
+            border-left: 6px solid #d38b54;
+            font-size: 1.02rem;
+            color: #3e2b1b;
+        }
+
+        .bg-note strong {
+            color: #7a4a28;
+        }
+
+        /* 三个自然段落 —— 杂志风格 */
+        .section-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .section-item {
+            background: #fcf8f3;
+            padding: 1.5rem 1.8rem;
+            border-radius: 28px;
+            box-shadow: 0 2px 8px rgba(150, 90, 40, 0.06);
+            transition: 0.15s;
+        }
+
+        .section-item:hover {
+            background: #faf3ea;
+            box-shadow: 0 6px 14px rgba(110, 65, 25, 0.1);
+        }
+
+        .section-item h2 {
+            font-size: 1.3rem;
+            font-weight: 550;
+            color: #5e3c20;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-item h2::before {
+            content: "▍";
+            color: #c07d48;
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .section-item p {
+            color: #402f20;
+            font-size: 1rem;
+        }
+
+        /* 内嵌链接 */
+        .section-item a {
+            color: #b1571d;
+            text-decoration: none;
+            font-weight: 550;
+            padding: 0.1rem 0.3rem;
+            border-radius: 20px;
+            background: transparent;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .section-item a:hover {
+            background: #edceb2;
+            border-bottom: 2px solid #b56b32;
+        }
+
+        /* 访问提示区 + FAQ 摘要卡片 */
+        .footer-note {
+            background: #f7ede2;
+            border-radius: 32px;
+            padding: 1.8rem 2rem;
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.2rem 1.8rem;
+            border: 1px solid #e6d3c0;
+        }
+
+        .footer-note .tip-text {
+            flex: 2 1 220px;
+            font-size: 1rem;
+            color: #402f1e;
+        }
+
+        .footer-note .tip-text span {
+            background: #dbaa7b;
+            color: #241a12;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        .faq-mini {
+            flex: 1 1 180px;
+            background: #fffbf7;
+            border-radius: 60px;
+            padding: 0.6rem 1.4rem;
+            font-size: 0.98rem;
+            border: 1px dashed #d2935f;
+            color: #3d2a1a;
+            text-align: center;
+        }
+
+        .faq-mini strong {
+            color: #9b5f2d;
+        }
+
+        .footer-note .visit-link {
+            flex: 1 1 160px;
+            text-align: center;
+        }
+
+        .visit-link a {
+            display: inline-block;
+            background: #b9743d;
+            color: #fcf6ee;
+            padding: 0.65rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 550;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(150, 80, 20, 0.25);
+            transition: 0.2s;
+            border: 1px solid #d3945c;
+        }
+
+        .visit-link a:hover {
+            background: #a25f2c;
+            box-shadow: 0 6px 14px rgba(110, 60, 18, 0.35);
+            transform: scale(1.02);
+        }
+
+        .visit-link a:active {
+            transform: scale(0.97);
+        }
+
+        /* 页脚小字 */
+        .signature {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.82rem;
+            color: #6f533b;
+            opacity: 0.8;
+            letter-spacing: 0.3px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 650px) {
+            .magazine-card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 28px;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .section-item {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .footer-note {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .visit-link a {
+                width: 100%;
+                padding: 0.75rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero .sub {
+                font-size: 0.9rem;
+                padding: 0.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine-card">
+
+        <!-- 首页横幅 hero -->
+        <div class="hero">
+            <h1>九游 · 简明指南</h1>
+            <div class="sub">
+                <i>✦</i> 从发现到习惯 <i>✦</i>
+            </div>
+        </div>
+
+        <!-- 背景说明 -->
+        <div class="bg-note">
+            <strong>▎关于这个页面</strong> —— 许多朋友在寻找游戏资讯或试玩体验时，会注意到一个名为「九游」的平台。它聚合了多类型移动端内容，并提供社区交流空间。以下从几个侧面梳理它的基本用法与访问注意点，方便新老朋友快速上手。
+        </div>
+
+        <!-- 三段自然介绍 (杂志专题) -->
+        <div class="section-grid">
+            <div class="section-item">
+                <h2>平台定位与内容生态</h2>
+                <p>
+                    <a href="https://play-9games.com.cn">九游</a> 的覆盖面以手机游戏为核心，同时包含攻略、评测、预约与资源分享。和一般应用商店不同，它更强调用户社区互动——每个作品页面下方都有大量真实玩家讨论。如果你对某款游戏是否值得花时间犹豫不定，逛逛评论区往往能得到更直觉的参考。
+                </p>
+            </div>
+            <div class="section-item">
+                <h2>访问前的几点提醒</h2>
+                <p>
+                    首次使用 <a href="https://play-9games.com.cn">九游</a> 时，建议通过浏览器直接打开，不必额外下载客户端即可浏览大部分页面。部分历史版本或活动页面可能会因为浏览器兼容性出现排版偏移，此时可尝试切换到系统自带浏览器或更新至最新版。另外，平台内部分资源链接会导向开发者原站，留意域名变化能帮你避开仿冒内容。
+                </p>
+            </div>
+            <div class="section-item">
+                <h2>如何快速找到你需要的内容</h2>
+                <p>
+                    在 <a href="https://play-9games.com.cn">九游</a> 首页顶部搜索框输入游戏全名或缩写即可直达专区；如果只想随便逛逛，推荐留意“编辑精选”和“近期热门”两个栏目，它们每周更新两次，能够反映玩家群体的真实偏好变化。另外，建议把常用游戏加入“收藏”，下次登录时能从个人中心快速定位。
+                </p>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 + FAQ 摘要 -->
+        <div class="footer-note">
+            <div class="tip-text">
+                <span>💡</span> 建议使用 Chrome、Safari 或 Edge 浏览器访问，保持网页功能完整。部分页面可能需要允许弹出窗口。
+            </div>
+            <div class="faq-mini">
+                <strong>FAQ 摘要</strong> · 账号与数据互通？<br> 多数内容无需登录即可浏览，但评论与预约需注册。
+            </div>
+            <div class="visit-link">
+                <a href="https://play-9games.com.cn">九游</a>
+            </div>
+        </div>
+
+        <div class="signature">
+            — 杂志专题 · 基于公开信息整理，内容保持中立 —
+        </div>
+
+    </div>
+</body>
+</html>
